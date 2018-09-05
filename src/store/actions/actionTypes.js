@@ -1,0 +1,3 @@
+export const SET_USER_NICKNAME = "SET_USER_NICKNAME";
+export const SET_CATEGORY = "SET_CATEGORY";
+export const SET_ANSWER = "SET_ANSWER";

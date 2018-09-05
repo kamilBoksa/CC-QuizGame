@@ -4,7 +4,7 @@ import './buttonLarge.css';
 
 const buttonLarge = (props) => (
     <div>
-        <button onClick={ props.clicked }>{ props.desc }</button>
+        <button value={props.desc} onClick={ props.clicked }>{ props.desc }</button>
     </div>
 );
 
