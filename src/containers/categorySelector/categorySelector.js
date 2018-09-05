@@ -7,20 +7,29 @@ import {connect} from "react-redux";
 
 class categorySelector extends Component {
 
+    constructor(props) {
+        super(props);
+        this.nickname = this.props.nickname;
+        this.props.onInitCategories();
+    }
+
     categoryClickedHandler = (event) => {
         this.props.onCategorySelected(event.target.value);
         this.props.history.push('/game');
     };
 
     render() {
+        let categories = this.props.categories.map(category => (
+            <ButtonLarge
+                clicked={this.categoryClickedHandler}
+                desc={category}
+                key={category}/>
+        ));
         return(
             <Aux>
-                <h1>Hello {this.props.nickname} !</h1>
+                <h1>Hello {this.nickname} !</h1>
                 <Header title="Select category from listed below:"/>
-                <ButtonLarge clicked = {this.categoryClickedHandler} desc="Algorithms"/>
-                <ButtonLarge clicked = {this.categoryClickedHandler} desc="Videogames"/>
-                <ButtonLarge clicked = {this.categoryClickedHandler} desc="Data Structures"/>
-                <ButtonLarge clicked = {this.categoryClickedHandler} desc="Codecool"/>
+                {categories}
             </Aux>
         );
     }
@@ -29,12 +38,14 @@ class categorySelector extends Component {
 const mapStateToProps = state => {
     return {
         nickname: state.landingPage.userNickname,
+        categories: state.category.categories
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onCategorySelected: (categoryName) => dispatch(actions.setCategory(categoryName)),
+        onInitCategories: () => dispatch(actions.getCategories()),
+        onCategorySelected: (categoryName) => dispatch(actions.setCategory(categoryName))
     };
 };
 

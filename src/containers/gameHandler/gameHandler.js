@@ -8,20 +8,29 @@ import {connect} from "react-redux";
 
 class gameHandler extends Component {
 
+    constructor(props) {
+        super(props);
+        this.props.onInitAnswers();
+    }
+
     answerClickedHandler = (event) => {
         this.props.onAnswerSelected(event.target.value)
       //this.props.history.push('/highscores');
     };
 
     render() {
+        let answers = this.props.answers.map(answer => (
+            <ButtonLarge
+                clicked={this.answerClickedHandler}
+                desc={answer}
+                key={answer}/>
+        ));
         return(
             <Aux>
                 <h1> SELECTED CATEGORY : {this.props.categoryName}</h1>
+                <h1> "QUESTION" </h1>
                 <Header title="Select correct answer"/>
-                <ButtonLarge desc="Ans 1" clicked={ this.answerClickedHandler }/>
-                <ButtonLarge desc="Ans 2" clicked={ this.answerClickedHandler }/>
-                <ButtonLarge desc="Ans 3" clicked={ this.answerClickedHandler }/>
-                <ButtonLarge desc="Ans 4" clicked={ this.answerClickedHandler }/>
+                {answers}
                 <Result score="Current score : 2"/>
                 <p>Selected answer: {this.props.selectedAnswer}</p>
             </Aux>
@@ -32,12 +41,14 @@ class gameHandler extends Component {
 const mapStateToProps = state => {
     return {
         categoryName: state.category.categoryName,
-        selectedAnswer: state.game.selectedAnswer
+        selectedAnswer: state.game.selectedAnswer,
+        answers: state.game.answers
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
+        onInitAnswers: () => dispatch(actions.getAnswers()),
         onAnswerSelected: (answer) => dispatch(actions.setAnswer(answer))
     };
 };

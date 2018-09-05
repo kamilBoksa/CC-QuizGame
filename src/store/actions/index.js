@@ -1,3 +1,3 @@
 export { setUserNickname } from './landingPageActions';
-export { setCategory } from './categorySelectionActions';
-export { setAnswer } from './gameActions';
+export { setCategory, getCategories } from './categorySelectionActions';
+export { setAnswer, getAnswers } from './gameActions';

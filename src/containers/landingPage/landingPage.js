@@ -8,13 +8,19 @@ import { connect } from 'react-redux';
 
 class landingPage extends Component {
 
+    constructor(props) {
+        super(props);
+        this.username = "";
+    }
+
     handleSubmit = (event) => {
         event.preventDefault();
+        this.props.onNicknameChanged(this.username);
         this.props.history.push('/categories');
     };
 
     handleChange = (event) => {
-        this.props.onNicknameChanged(event.target.value);
+        this.username = event.target.value;
     };
 
     render() {

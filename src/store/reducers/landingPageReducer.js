@@ -2,7 +2,7 @@ import React from 'react';
 import {updateObject} from "../utility";
 
 const initialState = {
-    userNickname: " "
+    userNickname: ""
 };
 
 const setUserNickname = (state, action) => {

@@ -6,3 +6,12 @@ export const setAnswer = (answer) => {
         selectedAnswer: answer
     };
 };
+
+export const getAnswers = () => {
+    //fetch from API in future
+    const answers = ["Okon", "Masło", "Mydło", "Lubie placki"];
+    return {
+        type: actionTypes.GET_ANSWERS,
+        answers: answers
+    }
+};
