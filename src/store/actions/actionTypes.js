@@ -3,3 +3,5 @@ export const GET_CATEGORIES = "GET_CATEGORIES";
 export const SET_CATEGORY = "SET_CATEGORY";
 export const SET_ANSWER = "SET_ANSWER";
 export const GET_ANSWERS = "GET_ANSWERS";
+export const GET_QUESTIONS = "GET_QUESTIONS";
+export const SET_QUESTION = "SET_QUESTION";

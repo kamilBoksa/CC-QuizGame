@@ -11,10 +11,15 @@ class gameHandler extends Component {
     constructor(props) {
         super(props);
         this.props.onInitAnswers();
+        this.props.onInitQuestions();
+    }
+
+    componentWillUpdate() {
+        this.props.onSetQuestion(this.props.questions);
     }
 
     answerClickedHandler = (event) => {
-        this.props.onAnswerSelected(event.target.value)
+        this.props.onAnswerSelected(event.target.value);
       //this.props.history.push('/highscores');
     };
 
@@ -28,7 +33,7 @@ class gameHandler extends Component {
         return(
             <Aux>
                 <h1> SELECTED CATEGORY : {this.props.categoryName}</h1>
-                <h1> "QUESTION" </h1>
+                <h1> QUESTION: {this.props.question} </h1>
                 <Header title="Select correct answer"/>
                 {answers}
                 <Result score="Current score : 2"/>
@@ -42,14 +47,18 @@ const mapStateToProps = state => {
     return {
         categoryName: state.category.categoryName,
         selectedAnswer: state.game.selectedAnswer,
-        answers: state.game.answers
+        answers: state.game.answers,
+        questions: state.game.questions,
+        question: state.game.currentQuestion
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         onInitAnswers: () => dispatch(actions.getAnswers()),
-        onAnswerSelected: (answer) => dispatch(actions.setAnswer(answer))
+        onInitQuestions: () => dispatch(actions.getQuestions()),
+        onAnswerSelected: (answer) => dispatch(actions.setAnswer(answer)),
+        onSetQuestion: (questions) => dispatch(actions.setQuestion(questions))
     };
 };
 
