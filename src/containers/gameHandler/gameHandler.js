@@ -5,6 +5,7 @@ import Aux from '../../hoc/Auxillary';
 import Result from '../../components/counter/result';
 import * as actions from "../../store/actions";
 import {connect} from "react-redux";
+import "./gameHandler.css";
 
 class gameHandler extends Component {
 
@@ -32,12 +33,16 @@ class gameHandler extends Component {
         ));
         return(
             <Aux>
-                <h1> SELECTED CATEGORY : {this.props.categoryName}</h1>
-                <h1> QUESTION: {this.props.question} </h1>
-                <Header title="Select correct answer"/>
-                {answers}
-                <Result score="Current score : 2"/>
-                <p>Selected answer: {this.props.selectedAnswer}</p>
+                <div className="Content">
+                    <h1> SELECTED CATEGORY : {this.props.categoryName}</h1>
+                    <h1> QUESTION: {this.props.question} </h1>
+                    <Header title="Select correct answer"/>
+                    <div className="AnswersContainer">
+                        {answers}
+                    </div>
+                    <Result score="Current score : 2"/>
+                    <p>Selected answer: {this.props.selectedAnswer}</p>
+                </div>
             </Aux>
         );
     }

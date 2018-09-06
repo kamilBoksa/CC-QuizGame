@@ -4,6 +4,7 @@ import ButtonLarge from '../../components/buttonLarge/buttonLarge';
 import Aux from '../../hoc/Auxillary';
 import * as actions from "../../store/actions";
 import {connect} from "react-redux";
+import "./categorySelector.css";
 
 class categorySelector extends Component {
 
@@ -27,9 +28,13 @@ class categorySelector extends Component {
         ));
         return(
             <Aux>
-                <h1>Hello {this.nickname} !</h1>
-                <Header title="Select category from listed below:"/>
-                {categories}
+                <div className="Content">
+                    <h1>Hello {this.nickname} !</h1>
+                    <Header title="Select category from listed below:"/>
+                    <div className="CategoriesContainer">
+                        {categories}
+                    </div>
+                </div>
             </Aux>
         );
     }

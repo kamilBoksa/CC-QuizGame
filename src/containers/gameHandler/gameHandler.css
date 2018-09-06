@@ -1,0 +1,18 @@
+.Content {
+    padding-top: 60px;
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.AnswersContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.AnswerButton {
+    width: 30%;
+}

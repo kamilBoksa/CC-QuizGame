@@ -9,7 +9,7 @@ export const setCategory = (selCatName) => {
 
 export const getCategories = () => {
     //fetch from API in future
-    const categories = ["Algorithms", "DataStructures", "Math", "Codecool", "Biology"];
+    const categories = ["Algorithms", "DataStructures", "Math", "Codecool", "Biology", "Java"];
     return {
         type: actionTypes.GET_CATEGORIES,
         categories: categories

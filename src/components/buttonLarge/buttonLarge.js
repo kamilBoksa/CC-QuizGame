@@ -1,11 +1,11 @@
 import React from 'react';
-
+import Aux from '../../hoc/Auxillary';
 import './buttonLarge.css';
 
 const buttonLarge = (props) => (
-    <div>
-        <button value={props.desc} onClick={ props.clicked }>{ props.desc }</button>
-    </div>
+    <Aux>
+        <button className="ButtonLarge" value={props.desc} onClick={ props.clicked }>{ props.desc }</button>
+    </Aux>
 );
 
 export default buttonLarge;
