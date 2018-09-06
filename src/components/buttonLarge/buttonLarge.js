@@ -4,7 +4,7 @@ import './buttonLarge.css';
 
 const buttonLarge = (props) => (
     <Aux>
-        <button className="ButtonLarge" value={props.desc} onClick={ props.clicked }>{ props.desc }</button>
+        <button className={props.className} value={props.desc} onClick={ props.clicked }>{ props.desc }</button>
     </Aux>
 );
 

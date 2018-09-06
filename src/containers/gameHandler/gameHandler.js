@@ -27,6 +27,7 @@ class gameHandler extends Component {
     render() {
         let answers = this.props.answers.map(answer => (
             <ButtonLarge
+                className="AnswerButton"
                 clicked={this.answerClickedHandler}
                 desc={answer}
                 key={answer}/>
@@ -34,8 +35,8 @@ class gameHandler extends Component {
         return(
             <Aux>
                 <div className="Content">
-                    <h1> SELECTED CATEGORY : {this.props.categoryName}</h1>
-                    <h1> QUESTION: {this.props.question} </h1>
+                    <h1> Selected Category : {this.props.categoryName}</h1>
+                    <h1> Question: {this.props.question} </h1>
                     <Header title="Select correct answer"/>
                     <div className="AnswersContainer">
                         {answers}

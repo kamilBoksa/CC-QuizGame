@@ -22,6 +22,7 @@ class categorySelector extends Component {
     render() {
         let categories = this.props.categories.map(category => (
             <ButtonLarge
+                className="ButtonLarge"
                 clicked={this.categoryClickedHandler}
                 desc={category}
                 key={category}/>

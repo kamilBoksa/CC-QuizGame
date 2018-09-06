@@ -22,3 +22,28 @@
     color: black;
     cursor: pointer;
 }
+
+.AnswerButton {
+    width: 35%;
+    min-width: 160px;
+    height: 120px;
+    background-color: #008CBA;
+    border: 1px solid #008CBA;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    border-radius: 8px;
+    margin: 10px 20px;
+    box-sizing: border-box;
+}
+
+.AnswerButton:hover {
+    background-color: white; /* Green */
+    color: black;
+    cursor: pointer;
+}

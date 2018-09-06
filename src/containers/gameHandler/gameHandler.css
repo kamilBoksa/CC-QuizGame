@@ -4,6 +4,7 @@
     height: 50%;
     margin: auto;
     text-align: center;
+    font-size: 16px;
 }
 
 .AnswersContainer {
@@ -11,8 +12,4 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-.AnswerButton {
-    width: 30%;
 }
