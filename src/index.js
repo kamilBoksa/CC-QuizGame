@@ -7,12 +7,10 @@ import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import landingPageReducer from './store/reducers/landingPageReducer';
 import categoryReducer from './store/reducers/categoryReducer';
 import gameReducer from './store/reducers/gameReducer';
 
 const rootReducer = combineReducers({
-    landingPage: landingPageReducer,
     category: categoryReducer,
     game: gameReducer
 });

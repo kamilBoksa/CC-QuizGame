@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes';
+import axios from 'axios';
 
 export const setCategory = (selCatName) => {
     return {
@@ -7,11 +8,26 @@ export const setCategory = (selCatName) => {
     };
 };
 
-export const getCategories = () => {
-    //fetch from API in future
-    const categories = ["Algorithms", "DataStructures", "Math", "Codecool", "Biology", "Java"];
+export const getCategories = (categories) => {
+    const categoriesArr = [];
+    for(let i=0; i<categories.length;i++) {
+        categoriesArr.push(categories[i]._name)
+    }
+
     return {
         type: actionTypes.GET_CATEGORIES,
-        categories: categories
+        categories: categoriesArr
     }
+};
+
+export const initCategories = () => {
+    return dispatch => {
+        axios.get("https://cc-quiz-game.herokuapp.com/categories")
+            .then(response => {
+                dispatch(getCategories(response.data))
+            })
+            .catch(error => {
+               console.log(error);
+            });
+    };
 };

@@ -1,23 +1,38 @@
 import React, { Component } from 'react';
 import Result from '../../components/result/result';
-import Aux from '../../hoc/Auxillary';
 import Header from '../../components/header/header';
 import SmallButton from '../../components/buttonSmall/buttonSmall';
+import { connect } from 'react-redux';
 
 class Highscores extends Component {
+
+    componentDidMount() {
+        alert(this.props.currentScore);
+    }
+
+    restartGameHandler = () => {
+        this.props.history.push("/categories");
+    };
+
     render() {
         return(
-         <Aux>
+         <div className="Content">
              <Header title="Highscores"/>
-             <ul>
+             <ol>
                  <li><Result/></li>
                  <li><Result/></li>
                  <li><Result/></li>
-             </ul>
-             <SmallButton desc="Play again"/>
-         </Aux>
+             </ol>
+             <SmallButton desc="Play again" clicked={this.restartGameHandler}/>
+         </div>
         )
     }
 }
 
-export default Highscores;
+const mapStateToProps = state => {
+    return {
+        currentScore: state.game.currentScore
+    }
+};
+
+export default connect(mapStateToProps)(Highscores);

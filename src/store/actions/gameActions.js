@@ -1,4 +1,6 @@
 import * as actionTypes from './actionTypes';
+import axios from "axios/index";
+import {getCategories} from "./categorySelectionActions";
 
 export const setAnswer = (answer) => {
     return {
@@ -7,28 +9,41 @@ export const setAnswer = (answer) => {
     };
 };
 
-export const getAnswers = () => {
-    //fetch from API in future
-    const answers = ["A-1", "A-2", "A-3", "A-4"];
+export const updateScore = (newScore) => {
     return {
-        type: actionTypes.GET_ANSWERS,
-        answers: answers
+        type:actionTypes.UPDATE_SCORE,
+        currentScore: newScore
     }
 };
 
-export const setQuestion = (questions) => {
-    let question = questions[Math.floor(Math.random()*questions.length)];
+export const getQuestions = (categoryName) => {
+    return dispatch => {
+        axios.get("https://cc-quiz-game.herokuapp.com/categories/" + categoryName + "/question")
+            .then(response => {
+            dispatch(setQuestions(response.data))
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    }
+};
+
+export const setQuestions = (importedQuestions)=> {
     return {
-        type: actionTypes.SET_QUESTION,
-        selectedQuestion: question
+        type: actionTypes.GET_QUESTIONS,
+        questions: importedQuestions
     };
 };
 
-export const getQuestions = () => {
-    //fetch from API in future
-    const categoryQuestions = ["Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7"];
+export const initQuestion = (index) => {
     return {
-        type: actionTypes.GET_QUESTIONS,
-        questions: categoryQuestions
+        type: actionTypes.INIT_QUESTION,
+        currentIndex: index
+    }
+};
+
+export const resetGameData = () => {
+    return {
+        type: actionTypes.RESET_GAME_DATA
     }
 };

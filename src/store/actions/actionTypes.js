@@ -1,7 +1,10 @@
-export const SET_USER_NICKNAME = "SET_USER_NICKNAME";
 export const GET_CATEGORIES = "GET_CATEGORIES";
 export const SET_CATEGORY = "SET_CATEGORY";
 export const SET_ANSWER = "SET_ANSWER";
-export const GET_ANSWERS = "GET_ANSWERS";
-export const GET_QUESTIONS = "GET_QUESTIONS";
 export const SET_QUESTION = "SET_QUESTION";
+export const UPDATE_SCORE = "UPDATE_SCORE";
+export const FINISH_LOADING = "FINISH_LOADING";
+export const START_LOADING = "START_LOADING";
+export const GET_QUESTIONS = "GET_QUESTIONS";
+export const INIT_QUESTION = "INIT_QUESTION";
+export const RESET_GAME_DATA = "RESET_GAME_DATA";

@@ -10,7 +10,6 @@ class categorySelector extends Component {
 
     constructor(props) {
         super(props);
-        this.nickname = this.props.nickname;
         this.props.onInitCategories();
     }
 
@@ -30,7 +29,7 @@ class categorySelector extends Component {
         return(
             <Aux>
                 <div className="Content">
-                    <h1>Hello {this.nickname} !</h1>
+                    <h1>Hello {this.props.nickname} !</h1>
                     <Header title="Select category from listed below:"/>
                     <div className="CategoriesContainer">
                         {categories}
@@ -43,14 +42,14 @@ class categorySelector extends Component {
 
 const mapStateToProps = state => {
     return {
-        nickname: state.landingPage.userNickname,
+        nickname: sessionStorage.getItem("nickname"),
         categories: state.category.categories
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onInitCategories: () => dispatch(actions.getCategories()),
+        onInitCategories: () => dispatch(actions.initCategories()),
         onCategorySelected: (categoryName) => dispatch(actions.setCategory(categoryName))
     };
 };

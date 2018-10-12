@@ -4,8 +4,6 @@ import Header from '../../components/header/header';
 import Input from '../../components/input/input';
 import ButtonSmall from '../../components/buttonSmall/buttonSmall';
 import Aux from '../../hoc/Auxillary';
-import * as actions from '../../store/actions/index';
-import { connect } from 'react-redux';
 
 class landingPage extends Component {
 
@@ -16,7 +14,7 @@ class landingPage extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.onNicknameChanged(this.username);
+        sessionStorage.setItem("nickname", this.username);
         this.props.history.push('/categories');
     };
 
@@ -39,16 +37,4 @@ class landingPage extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        nickname: state.landingPage.userNickname,
-    }
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onNicknameChanged: (nickName) => dispatch(actions.setUserNickname(nickName)),
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(landingPage);
+export default landingPage;
