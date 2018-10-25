@@ -2,9 +2,9 @@
     width: 25%;
     min-width: 160px;
     height: 120px;
-    background-color: #008CBA;
-    border: 1px solid #008CBA;
-    color: white;
+    background-color:#deffb3;
+    border: 3px solid dodgerblue;
+    color: black;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -13,29 +13,33 @@
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     border-radius: 8px;
-    margin: 10px 20px;
+    margin: 10px 25px;
     box-sizing: border-box;
+    box-shadow: 10px 10px 5px lightgray;
 }
 
-.ButtonLarge:hover {
-    background-color: white; /* Green */
+.ButtonLarge:hover, .ButtonLarge:focus {
+    background-color: #c8ff80;
+    border: 4px solid dodgerblue;
     color: black;
     cursor: pointer;
+    width: 26%;
+    height: 125px;
 }
 
 .AnswerButton {
     width: 35%;
     min-width: 160px;
     height: 120px;
-    background-color: #008CBA;
-    border: 1px solid #008CBA;
-    color: white;
+    background-color: #deffb3;
+    border: 3px solid dodgerblue;
+    color: black;
     padding: 15px 32px;
+    font-size: 28px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     border-radius: 8px;
     margin: 10px 20px;
@@ -43,7 +47,10 @@
 }
 
 .AnswerButton:hover {
-    background-color: white; /* Green */
+    border: 4px solid dodgerblue;
+    background-color: #c8ff80;
     color: black;
     cursor: pointer;
+    width: 35.5%;
+    height: 121px;
 }

@@ -1,9 +1,87 @@
-.Content {
-    padding-top: 60px;
-    width: 80%;
+html {
+    height: 100%;
+    width: auto;
+}
+
+#root {
+    margin-top: 100px;
+}
+
+.ContentLanding {
+    margin: 60px auto;
+    width: 50%;
     height: 50%;
-    margin: auto;
+    min-height: 300px;
     text-align: center;
     font-size: 32px;
     color: white;
+    border: 3px solid black;
+    border-radius: 5px;
+    background-color: rgb(255,255,255)
 }
+
+#box {
+    margin: 10px auto;
+    max-width: 400px;
+    width: 90%;
+    min-height: 100px;
+    color: dodgerblue;
+    text-align: center;
+    border-radius: 5px;
+    position: relative;
+}
+
+    #pulsate {
+        font-size: 32px;
+        -webkit-animation: pulsateBig 2s ease-out;
+        -webkit-animation-iteration-count: infinite;
+    }
+
+    @-webkit-keyframes pulsateBig {
+        50% {
+            font-size: 48px;
+        }
+    }
+
+
+
+@media only screen and (max-width: 600px) {
+    #root {
+        height: 100%;
+    }
+
+    #box {
+        min-height: 60px;
+    }
+
+    .ContentLanding {
+        margin: 30px auto;
+        width: 90%;
+        height: 80%;
+        min-height: 240px;
+        text-align: center;
+        font-size: 32px;
+        color: white;
+        border: 3px solid black;
+        border-radius: 5px;
+        background-color: rgba(255,255,255)
+    }
+
+    #pulsate {
+        font-size: 16px;
+        -webkit-animation: pulsateSmall 2s ease-out;
+        -webkit-animation-iteration-count: infinite;
+    }
+
+    @-webkit-keyframes pulsateSmall {
+        50% {
+            font-size: 32px;
+        }
+    }
+}
+
+input, button {
+    max-width: 400px;
+    min-width: 150px;
+}
+

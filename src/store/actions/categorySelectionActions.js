@@ -1,17 +1,26 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
 
-export const setCategory = (selCatName) => {
+export const setCategory = (selCatName, categories) => {
+    let categoryId = "";
+    for(let i=0; i<categories.length; i++) {
+        if(categories[i].categoryName === selCatName) {
+            categoryId = categories[i].categoryId;
+        }
+    }
     return {
         type: actionTypes.SET_CATEGORY,
-        categoryName: selCatName
+        categoryName: selCatName,
+        categoryId: categoryId
     };
 };
 
 export const getCategories = (categories) => {
     const categoriesArr = [];
     for(let i=0; i<categories.length;i++) {
-        categoriesArr.push(categories[i]._name)
+        categoriesArr.push({
+            "categoryName": categories[i].category_name,
+            "categoryId": categories[i].id})
     }
 
     return {

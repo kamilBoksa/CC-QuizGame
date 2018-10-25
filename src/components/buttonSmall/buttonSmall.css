@@ -1,7 +1,7 @@
 .ButtonSmall {
     width: 50%;
-    background-color: #008CBA;
-    border: 1px solid #008CBA;
+    background-color: #7ebcff;
+    border: 1px solid black;
     color: white;
     padding: 15px 32px;
     text-align: center;
@@ -11,10 +11,14 @@
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     border-radius: 8px;
+    margin-bottom: 10px;
 }
 
 .ButtonSmall:hover {
-    background-color: white; /* Green */
-    color: black;
+    background-color: dodgerblue;
     cursor: pointer;
+}
+
+#playButton {
+    width: 100px;
 }

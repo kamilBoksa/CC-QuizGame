@@ -25,11 +25,11 @@ class landingPage extends Component {
     render() {
         return(
             <Aux>
-                <div className="Content">
-                    <Header title="Welcome to Quizgame"/>
+                <div className="ContentLanding">
+                    <div id="box"><span id="pulsate">QuizGame</span></div>
                     <form onSubmit={this.handleSubmit}>
                         <Input value={this.props.nickname} desc="Enter your nickname" onChange={this.handleChange}/>
-                        <ButtonSmall type="submit" desc="Start game"/>
+                        <ButtonSmall id="playButton" className="ButtonSmall" type="submit" desc="Start game"/>
                     </form>
                 </div>
             </Aux>

@@ -1,15 +1,16 @@
 .result {
     text-align: left;
-    border: 1px solid white;
+    border: 1px solid dodgerblue;
     border-radius: 8px;
-    background-color: floralwhite;
-    margin-bottom: 10px;
+    background-color: #deffb3;
     min-height: 35px;
     font-size: 24px;
     color: black;
+    width:80%;
+    margin: 0 auto 10px auto;
 }
 
 .result p {
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
 }

@@ -4,6 +4,8 @@ import Header from '../../components/header/header';
 import SmallButton from '../../components/buttonSmall/buttonSmall';
 import axios from 'axios';
 import {connect} from "react-redux";
+import Aux from '../../hoc/Auxillary';
+import './highscores.css';
 
 class Highscores extends Component {
 
@@ -15,17 +17,18 @@ class Highscores extends Component {
     }
 
     componentDidMount() {
-        axios.post("https://cc-quiz-game.herokuapp.com/users", {
-            playerName: sessionStorage.getItem("nickname"),
-        })
-            .then(() => {
-                axios.get("https://cc-quiz-game.herokuapp.com/users")
+        // axios.post("https://cc-quiz-game.herokuapp.com/players", {
+        //     "player_nick": sessionStorage.getItem("nickname"),
+        //     "player_score": this.props.userScore
+        // })
+        //     .then(() => {
+                axios.get("https://cc-quiz-game.herokuapp.com/highscores")
                     .then(response => {
                         this.setState({
                             usersData: response.data
                         });
                     });
-            });
+            // });
     }
 
     restartGameHandler = () => {
@@ -37,17 +40,19 @@ class Highscores extends Component {
             return b._score - a._score
         });
         let usersScores = this.state.usersData.slice(0,10).map((userData, index) => (
-            <Result key={userData._id} position={index + 1} username={userData._nick} score = {userData._score}/>
+            <Result key={userData.id} position={index + 1} username={userData.player_nick} score = {userData.player_score}/>
             )
         );
         return(
-         <div className="Content">
-             <Header title="Highscores"/>
-             <ol>
-                 { usersScores }
-             </ol>
-             <SmallButton desc="Play again" clicked={this.restartGameHandler}/>
-         </div>
+            <Aux>
+                <div className="ContentHighScores">
+                    <Header title="Highscores"/>
+                    <ol>
+                        { usersScores }
+                    </ol>
+                    <SmallButton className="ButtonSmall" desc="Play again" clicked={this.restartGameHandler}/>
+                </div>
+            </Aux>
         )
     }
 }

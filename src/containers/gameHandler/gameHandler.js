@@ -24,7 +24,7 @@ class gameHandler extends Component {
         if(this.props.categoryName === " "){
             this.props.history.push("/");
         } else {
-            this.props.onGetQuestions(this.props.categoryName);
+            this.props.onGetQuestions(this.props.categoryId);
             setTimeout(()=> {
                 this.props.onInitQuestion(this.state.questionIndex);
                 this.props.onUpdateScore(0);
@@ -46,7 +46,7 @@ class gameHandler extends Component {
         if(this.state.questionIndex < 8) {
             this.props.onInitQuestion(this.state.questionIndex);
         }
-        if(event.target.value === this.props.question.correctAnswer) {
+        if(event.target.id === this.props.question.correctAnswerId) {
             this.props.onUpdateScore(this.props.currentScore + 1);
         }
         if(this.state.questionIndex === 8) {
@@ -59,18 +59,19 @@ class gameHandler extends Component {
             <ButtonLarge
                 className="AnswerButton"
                 clicked={this.answerClickedHandler}
-                desc={answer._text}
-                key={answer._text}/>
+                desc={answer.answer_text}
+                id={answer.id}
+                key={answer.id}/>
         ));
 
         let question =(
             <Aux>
-                <h1> Question: {this.props.question.description}
-                    <span className="QuestionCounter">
+                <span className="QuestionCounter">
                                 {this.state.questionIndex + 1}/8
-                            </span>
-                </h1>
-                <Header title="Select correct answer"/>
+                </span>
+                <h1 id="questionDesc"> Question: {this.props.question.description}</h1>
+                <Header title="Select correct answer:"/>
+                <hr/>
                 <div className="AnswersContainer">
                     {answers}
                 </div>
@@ -82,7 +83,7 @@ class gameHandler extends Component {
         }
         return(
             <Aux>
-                <div className="Content">
+                <div className="ContentGame">
                     <h1> Selected Category : {this.props.categoryName}</h1>
                     {question}
                 </div>
@@ -94,6 +95,7 @@ class gameHandler extends Component {
 const mapStateToProps = state => {
     return {
         categoryName: state.category.categoryName,
+        categoryId: state.category.categoryId,
         question: state.game.question,
         questions: state.game.questions,
         selectedAnswer: state.game.selectedAnswer,
@@ -104,7 +106,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onGetQuestions: (categoryName) => dispatch(actions.getQuestions(categoryName)),
+        onGetQuestions: (categoryId) => dispatch(actions.getQuestions(categoryId)),
         onInitQuestion: (index) => dispatch(actions.initQuestion(index)),
         onAnswerSelected: (answer) => dispatch(actions.setAnswer(answer)),
         onUpdateScore: (newScore) => dispatch(actions.updateScore(newScore)),

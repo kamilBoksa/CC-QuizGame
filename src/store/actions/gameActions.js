@@ -16,11 +16,11 @@ export const updateScore = (newScore) => {
     }
 };
 
-export const getQuestions = (categoryName) => {
+export const getQuestions = (categoryId) => {
     return dispatch => {
-        axios.get("https://cc-quiz-game.herokuapp.com/categories/" + categoryName + "/question")
+        axios.get("https://cc-quiz-game.herokuapp.com/categories/" + categoryId + "/questions")
             .then(response => {
-            dispatch(setQuestions(response.data))
+            dispatch(setQuestions(response.data.questions))
         })
         .catch(error => {
             console.log(error);

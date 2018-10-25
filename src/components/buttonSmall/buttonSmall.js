@@ -4,7 +4,7 @@ import './buttonSmall.css';
 
 const buttonSmall = (props) => (
     <div>
-        <button className="ButtonSmall" type={props.type} onClick={props.clicked}>{ props.desc }</button>
+        <button id={props.id} className={props.className} type={props.type} onClick={props.clicked}>{ props.desc }</button>
     </div>
 );
 

@@ -3,7 +3,8 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     categories: [],
-    categoryName: " "
+    categoryName: " ",
+    categoryId: " "
 };
 
 const getCategories = (state, action) => {
@@ -16,6 +17,7 @@ const getCategories = (state, action) => {
 const setCategory = (state, action) => {
     const updatedState = {
         categoryName: action.categoryName,
+        categoryId: action.categoryId
     };
     return updateObject(state, updatedState);
 };

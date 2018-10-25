@@ -20,7 +20,6 @@ const getQuestions = (state, action) => {
     return updateObject(state, updatedState);
 };
 
-
 const updateScore = (state, action) => {
     const updatedScore = {
         currentScore: action.currentScore
@@ -32,10 +31,10 @@ const initQuestion = (state, action) => {
     const actualQuestion = state.questions[action.currentIndex];
     const updatedState = {
         question: {
-            description: actualQuestion._description,
-            correctAnswer: actualQuestion._correctAnswer,
-            answers: actualQuestion._answers,
-            id: actualQuestion._questionId
+            description: actualQuestion.question_description,
+            correctAnswerId: actualQuestion.correct_answer_id,
+            answers: actualQuestion.answers,
+            id: actualQuestion.id
         }
     };
     return updateObject(state, updatedState)

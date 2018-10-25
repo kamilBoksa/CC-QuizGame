@@ -14,7 +14,7 @@ class categorySelector extends Component {
     }
 
     categoryClickedHandler = (event) => {
-        this.props.onCategorySelected(event.target.value);
+        this.props.onCategorySelected(event.target.value, this.props.categories);
         this.props.history.push('/game');
     };
 
@@ -23,14 +23,15 @@ class categorySelector extends Component {
             <ButtonLarge
                 className="ButtonLarge"
                 clicked={this.categoryClickedHandler}
-                desc={category}
-                key={category}/>
+                desc={category.categoryName}
+                key={category.categoryId}/>
         ));
         return(
             <Aux>
-                <div className="Content">
+                <div className="ContentCategory">
                     <h1>Hello {this.props.nickname} !</h1>
                     <Header title="Select category from listed below:"/>
+                    <hr/>
                     <div className="CategoriesContainer">
                         {categories}
                     </div>
@@ -50,7 +51,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onInitCategories: () => dispatch(actions.initCategories()),
-        onCategorySelected: (categoryName) => dispatch(actions.setCategory(categoryName))
+        onCategorySelected: (categoryName, categories) => dispatch(actions.setCategory(categoryName, categories))
     };
 };
 
