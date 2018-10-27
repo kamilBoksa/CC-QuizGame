@@ -17,18 +17,18 @@ class Highscores extends Component {
     }
 
     componentDidMount() {
-        // axios.post("https://cc-quiz-game.herokuapp.com/players", {
-        //     "player_nick": sessionStorage.getItem("nickname"),
-        //     "player_score": this.props.userScore
-        // })
-        //     .then(() => {
+        axios.post("https://cc-quiz-game.herokuapp.com/players", {
+            player_nick: sessionStorage.getItem("nickname"),
+            player_score: this.props.userScore
+        })
+            .then(() => {
                 axios.get("https://cc-quiz-game.herokuapp.com/highscores")
                     .then(response => {
                         this.setState({
                             usersData: response.data
                         });
                     });
-            // });
+            });
     }
 
     restartGameHandler = () => {
