@@ -11,6 +11,10 @@
     background-color: rgba(255,255,255)
 }
 
+.ContentGame h1 {
+    font-size: 22px;
+}
+
 .AnswersContainer {
     display: flex;
     flex-direction: row;
@@ -25,7 +29,7 @@
 .QuestionCounter {
     float: right;
     margin-right: 20px;
-    font-size: 32px;
+    font-size: 22px;
     border: 5px dashed dodgerblue;
     border-radius: 50%;
     padding: 5px;
@@ -45,6 +49,7 @@
         height: 80%;
         min-height: 240px;
         text-align: center;
+        font-size: 12px;
     }
     .AnswersContainer {
         justify-content: center;

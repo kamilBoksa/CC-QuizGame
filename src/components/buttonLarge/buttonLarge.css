@@ -5,7 +5,7 @@
     background-color:#deffb3;
     border: 3px solid dodgerblue;
     color: black;
-    padding: 15px 32px;
+    padding: 12px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -34,8 +34,8 @@
     background-color: #deffb3;
     border: 3px solid dodgerblue;
     color: black;
-    padding: 15px 32px;
-    font-size: 28px;
+    padding: 12px 20px;
+    font-size: 18px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -53,4 +53,10 @@
     cursor: pointer;
     width: 35.5%;
     height: 121px;
+}
+
+@media screen and (max-width: 600px) {
+    .AnswerButton {
+        font-size: 18px;
+    }
 }
